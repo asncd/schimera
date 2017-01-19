@@ -156,4 +156,4 @@ EXPR_MAT.columns=cnames
 gene_labels=pd.DataFrame(genenames)
 gene_labels.index=gene_labels.index+1
 EXPR_MAT.index=gene_labels.ix[EXPR_MAT.index,0]
-EXPR_MAT.to_csv(pathout+'/expr_TPTfilt.txt',sep='\t')
+EXPR_MAT.to_csv(pathout+'/UMI_TPTfilt.txt',sep='\t')
