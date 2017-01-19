@@ -104,6 +104,18 @@ T_tot.index=T_tot['bcumi']
 T_tot=T_tot.join(BCUMI_group)
 T_tot['TPT']=1.0*(np.divide(1.0*T_tot['read_counts'],T_tot['total_reads']))
 
+
+#plot TPT and reads distributions
+plt.hist(T_tot['TPT'],20)
+plt.xlabel('TPT')
+plt.savefig(pathout+'/TPT_hist.pdf')
+plt.clf()
+
+plt.hist(np.log2(T_tot['read_counts']+1),20)
+plt.xlabel('log2(Reads/UMI+1)')
+plt.savefig(pathout+'/reads_hist.pdf')
+plt.clf()
+
 tpt_logical=T_tot['TPT']>tpt_filter
 T_tot_filt=T_tot[tpt_logical]
 print('Filtered '+str(np.round(100*(1.0-np.mean(tpt_logical)),4))+'%')
