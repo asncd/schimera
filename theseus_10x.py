@@ -9,6 +9,10 @@ import h5py
 import re
 import time
 import sys
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 
 def read_10x_h5(path2file):
     
